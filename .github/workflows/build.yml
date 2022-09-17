@@ -13,11 +13,6 @@ jobs:
     env:
       RUST_BACKTRACE: full
       RUST_LOG: debug
-    strategy:
-      fail-fast: false
-      matrix:
-        features:
-          - --all-features
     steps:
       - uses: actions/checkout@v3
 
@@ -30,10 +25,9 @@ jobs:
             ~/.cargo/registry/index/
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
-          key: cargo-${{ runner.os }}-${{ hashFiles('./Cargo.toml', './Cargo.lock') }}-${{ matrix.features }}
+          key: cargo-${{ runner.os }}-${{ hashFiles('./Cargo.toml', './Cargo.lock') }}
           restore-keys: |
-            cargo-${{ runner.os }}-${{ hashFiles('./Cargo.toml', './Cargo.lock') }}-
-            cargo-${{ runner.os }}-
+            cargo-${{ runner.os }}
 
       - name: Test
-        run: cargo test ${{ matrix.features }}
+        run: cargo test --features 'all'

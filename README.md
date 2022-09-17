@@ -5,5 +5,5 @@ Collection of Rust utility.
 ## Installation
 
 ```toml
-macross = { git = "https://github.com/kafji/macross" }
+macross = { git = "https://github.com/kafji/macross", features = ["all"] }
 ```
