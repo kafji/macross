@@ -1,4 +1,3 @@
-use anyhow::Error;
 use indoc::formatdoc;
 
 #[macro_export]
@@ -12,7 +11,10 @@ macro_rules! include_migration {
 }
 
 /// Migrates database.
-pub fn migrate(conn: &mut rusqlite::Connection, migrations: &[&'static str]) -> Result<(), Error> {
+pub fn migrate(
+    conn: &mut rusqlite::Connection,
+    migrations: &[&'static str],
+) -> Result<(), rusqlite::Error> {
     loop {
         let user_version: i64 = conn.query_row("PRAGMA user_version;", [], |x| x.get(0))?;
         if user_version == migrations.len() as i64 {
