@@ -18,14 +18,14 @@ fn test_pretty_debug_format() {
     assert!(!format!("{secret:#?}").contains("sekret"));
 }
 
-#[cfg(feature = "ext_serde")]
+#[cfg(feature = "serde")]
 #[test]
 fn test_secret_is_deserializable() {
     let deserialized: Secret<String> = serde_json::from_str("\"sekret\"").unwrap();
     assert_eq!(deserialized, Secret("sekret".to_owned()));
 }
 
-#[cfg(feature = "ext_serde")]
+#[cfg(feature = "serde")]
 #[test]
 fn test_secret_is_serializable() {
     let serialized = serde_json::to_value(&Secret("sekret")).unwrap();

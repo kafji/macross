@@ -55,7 +55,7 @@ impl<T> Secret<T> {
     }
 }
 
-#[cfg(feature = "ext_serde")]
+#[cfg(feature = "serde")]
 impl<'de, T> serde::Deserialize<'de> for Secret<T>
 where
     T: serde::Deserialize<'de>,
@@ -70,7 +70,7 @@ where
     }
 }
 
-#[cfg(feature = "ext_serde")]
+#[cfg(feature = "serde")]
 impl<T> serde::Serialize for Secret<T>
 where
     T: serde::Serialize,

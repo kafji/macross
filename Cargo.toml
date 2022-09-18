@@ -4,8 +4,7 @@ version = "0.0.0"
 edition = "2021"
 
 [features]
-all = ["ext_serde", "get_port", "newtype", "secret", "sqlite_migration"]
-ext_serde = ["serde"]
+all = ["get_port", "newtype", "secret", "serde", "sqlite_migration"]
 get_port = ["thiserror"]
 newtype = []
 secret = []
