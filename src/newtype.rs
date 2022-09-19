@@ -7,7 +7,7 @@
 ///
 /// newtype! {
 ///     #[derive(Debug)]
-///     pub Address = String
+///     pub Address = String;
 /// }
 ///
 /// let addr: Address = "Easy St.".to_owned().into();
@@ -18,7 +18,7 @@
 macro_rules! newtype {
     {
         $(#[$($meta:meta)*])*
-        $vis:vis $name:ident = $ty:ty
+        $vis:vis $name:ident = $ty:ty;
     } => {
         $(#[$($meta)*])*
         $vis struct $name($vis $ty);
