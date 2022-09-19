@@ -1,4 +1,19 @@
-/// Define a new type.
+/// Define a new wrapping type similar to Haskell's `newtype`.
+///
+/// # Example.
+///
+/// ```rust
+/// use macross::newtype;
+///
+/// newtype! {
+///     #[derive(Debug)]
+///     pub Address = String
+/// }
+///
+/// let addr: Address = "Easy St.".to_owned().into();
+///
+/// assert_eq!("Easy St.", addr.as_ref());
+/// ```
 #[macro_export]
 macro_rules! newtype {
     {
