@@ -1,8 +1,8 @@
 #[cfg(feature = "get_port")]
 pub mod get_port;
 
-#[cfg(feature = "newtype")]
-pub mod newtype;
+#[cfg(feature = "typing")]
+pub mod typing;
 
 #[cfg(feature = "secret")]
 pub mod secret;
