@@ -42,3 +42,16 @@ macro_rules! newtype {
         }
     };
 }
+
+#[macro_export]
+macro_rules! impl_from {
+    ($dst:ty, { $($f:expr => $src:ty,)* }) => {
+        $(
+            impl From<$src> for $dst {
+                fn from(x: $src) -> Self {
+                    $f(x)
+                }
+            }
+        )*
+    };
+}
