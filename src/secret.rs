@@ -8,7 +8,7 @@ use core::fmt;
 /// let token = macross::secret::Secret("secret_token");
 /// println!("Secret token is: `{token}`.");
 /// ```
-#[derive(PartialEq, Clone)]
+#[derive(Clone, PartialEq, Default)]
 pub struct Secret<T>(pub T);
 
 impl<T> Copy for Secret<T> where T: Copy {}
