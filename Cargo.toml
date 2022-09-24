@@ -4,10 +4,11 @@ version = "0.0.0"
 edition = "2021"
 
 [features]
-all = ["get_port", "typing", "secret", "serde", "sqlite_migration"]
+all = ["get_port", "typing", "rusqlite", "secret", "serde"]
+database = []
 get_port = ["thiserror"]
+rusqlite = ["database", "indoc", "dep:rusqlite"]
 secret = []
-sqlite_migration = ["indoc", "rusqlite"]
 typing = []
 
 [dependencies]
